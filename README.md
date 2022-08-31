@@ -4,5 +4,6 @@ Repository for the paper Learning Hierarchical Metrical Structure Beyond Measure
 
 TODO
 * Instructions
+* Pre-trained models
 * Demos
 * Future works
