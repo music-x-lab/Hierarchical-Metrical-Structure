@@ -6,6 +6,8 @@ Repository for the paper Learning Hierarchical Metrical Structure Beyond Measure
 
 See ``output`` folder for demos from the validation and test split of RWC-Pop.
 
+Each output MIDI file contains an extra MIDI track with name ``Layers`` besides tracks from the original MIDI file. ``Layers`` is a drum track that labels L drum notes on a level-L boundary beyond measures (better viewed in an DAW with track-wise piano rolls). A downbeat without any drum notes is interpreted as a level-0 boundary.
+
 ## Pretrained model
 
 If you want to deploy the pre-trained model, download the pretrained weights ``simple_tcn_v2.0_filtered.sdict`` [here](https://drive.google.com/drive/folders/1vTuTQ0MaO5eru5h_bETjSGXKtVxlZrSw?usp=sharing) and put it in the ``cache_data`` folder.
@@ -44,7 +46,6 @@ To run the pretrained model on custom MIDI files:
 1. Make sure the MIDI file has correct metre, downbeat and beat labels derived from tempo change & time signature events (e.g., every tempo change events mark a downbeat position, you may use DAWs or python packages like ``pretty_midi`` to check this)
 2. Run ``python simple_tcn_eval.py path/to/your_midi.mid``.
 3. A prediction plot will be shown and a ``output/model_name/your_midi.mid_crf.mid`` file will be generated.
-4. The output MIDI file contains an extra MIDI track with name ``Layers``. It is a drum track that labels L drum notes on a level-L boundary beyond measures. A downbeat without any drum notes is interpreted as a level-0 boundary.
 
 To retrain the model:
 
