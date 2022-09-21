@@ -1,0 +1,1 @@
+drums:9,Electric Grand Piano(2):0,Electric Bass (finger)(33):1,Distortion Guitar(30):2,melody:3,Drawbar Organ(16):4,Acoustic Guitar (steel)(25):5,Flute(73):6,Distortion Guitar(30):7,Vibraphone(11):8,Overdriven Guitar(29):10

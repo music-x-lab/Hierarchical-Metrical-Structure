@@ -1,0 +1,1 @@
+drums:9,Pad 3 (polysynth)(90):0,Synth Bass 2(39):1,Overdriven Guitar(29):2,melody:3,Electric Guitar (muted)(28):4,Synth Strings 1(50):5,FX 5 (brightness)(100):6,Pad 1 (new age)(88):7,FX 1 (rain)(96):8,Synth Strings 1(50):10,FX 4 (atmosphere)(99):11,Distortion Guitar(30):12,Distortion Guitar(30):13,Voice Oohs(53):14

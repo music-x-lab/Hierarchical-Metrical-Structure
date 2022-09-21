@@ -121,42 +121,38 @@ def evaluate_lmd(model, count):
         model_eval(model, os.path.join(LMD_MATCHED_FOLDER, line), visualize=False)
 
 
-def main():
+def main(visualize, custom_midi):
     model = NetworkInterface(TCNClassifier(384, 256, 6, 5, 0.1),
         'simple_tcn_v2.0_filtered', load_checkpoint=False)
-    evaluate_lmd(model, 9999)
-    exit(0)
-    # model_eval(model, R'E:\Dataset\lmd_matched\L\C\N\TRLCNWM128F423BB63\7596e59dea60afab6bbc7207aca8bd8c.mid')
-    # print(evaluations_to_latex('Proposed\n(mel. only)',
-    #     [model_eval(model, R'input/POP909-%d.mid' % (i + 1), tracks=[0]) for i in range(5)]))
-    # print(evaluations_to_latex('Proposed',
-    #     [model_eval(model, R'input/POP909-%d.mid' % (i + 1)) for i in range(5)]))
-    split_files = get_split('rwc_multitrack_hierarchy_v6_supervised', 'test')
+    if custom_midi is not None:
+        model_eval(model, custom_midi, visualize=visualize)
+    else:
+        for split in ['val', 'test']:
+            split_files = get_split('rwc_multitrack_hierarchy_v6_supervised', split)
+            print(f'Dataset: RWC Pop {split}')
+            print(evaluations_to_latex('Proposed\nw/o CRF',
+                [model_eval(model, os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file),
+                            drums=1, melody=1, others=1, visualize=visualize, crf=False) for file in split_files]))
+            print(evaluations_to_latex('Proposed\n(mel. only)',
+                [model_eval(model, os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file),
+                            drums=0, melody=1, others=0, visualize=visualize) for file in split_files]))
+            print(evaluations_to_latex('Proposed\n(no drums)',
+                [model_eval(model, os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file),
+                            drums=0, melody=1, others=1, visualize=visualize) for file in split_files]))
+            print(evaluations_to_latex('Proposed',
+                [model_eval(model, os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file),
+                            drums=1, melody=1, others=1, visualize=visualize) for file in split_files]))
+        print('Dataset: POP909 test')
+        model_eval(model, R'E:\Dataset\lmd_matched\L\C\N\TRLCNWM128F423BB63\7596e59dea60afab6bbc7207aca8bd8c.mid')
+        print(evaluations_to_latex('Proposed\n(mel. only)',
+            [model_eval(model, R'input/POP909-%d.mid' % (i + 1), tracks=[0], visualize=visualize) for i in range(5)]))
+        print(evaluations_to_latex('Proposed',
+            [model_eval(model, R'input/POP909-%d.mid' % (i + 1), visualize=visualize) for i in range(5)]))
 
-    print(evaluations_to_latex('Proposed\nw/o CRF',
-        [model_eval(model, os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file),
-                    drums=1, melody=1, others=1, visualize=False, crf=False) for file in split_files]))
-    print(evaluations_to_latex('Proposed\n(mel. only)',
-        [model_eval(model, os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file),
-                    drums=0, melody=1, others=0, visualize=False) for file in split_files]))
-    print(evaluations_to_latex('Proposed\n(no drums)',
-        [model_eval(model, os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file),
-                    drums=0, melody=1, others=1, visualize=False) for file in split_files]))
-    print(evaluations_to_latex('Proposed',
-        [model_eval(model, os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file),
-                    drums=1, melody=1, others=1, visualize=False) for file in split_files]))
-    exit(0)
-    evaluations = []
-    print(model.save_name)
-    for file in split_files:
-        evaluation = model_eval(model, os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file),
-                   drums=1, melody=1, others=1)
-        if (evaluation is not None):
-            evaluations.append(evaluation)
-    if (len(evaluations) > 0):
-        mean_evaluation = np.mean(evaluations, axis=0)
-        print('Mean evaluation:\t' + '\t'.join('%.4f' % x for x in mean_evaluation))
 
 if __name__ == '__main__':
-    main()
-
+    import sys
+    if (len(sys.argv) >= 2):
+        main(visualize=True, custom_midi=sys.argv[1])
+    else:
+        main(visualize=False, custom_midi=None)

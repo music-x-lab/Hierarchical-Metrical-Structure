@@ -1,0 +1,1 @@
+drums:9,Electric Piano 1(4):0,Synth Bass 2(39):1,Lead 1 (square)(80):2,melody:3,Pad 2 (warm)(89):4,Percussive Organ(17):5,Synth Strings 1(50):6,Flute(73):7,Trumpet(56):8,Synth Strings 1(50):10,Electric Piano 1(4):11,Electric Guitar (clean)(27):12,Electric Guitar (clean)(27):13,Electric Guitar (muted)(28):14,Synth Choir(54):15

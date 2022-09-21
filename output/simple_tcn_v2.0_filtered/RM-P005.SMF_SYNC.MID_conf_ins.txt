@@ -1,0 +1,1 @@
+drums:11,Electric Piano 2(5):0,Electric Bass (finger)(33):1,Synth Bass 2(39):2,melody:3,Choir Aahs(52):4,Pad 5 (bowed)(92):5,Overdriven Guitar(29):6,String Ensemble 1(48):7,Kalimba(108):8,Sitar(104):9,Synth Bass 1(38):10,Distortion Guitar(30):12,Electric Guitar (clean)(27):13,FX 3 (crystal)(98):14,Orchestra Hit(55):15,Clavinet(7):16,Brass Section(61):17

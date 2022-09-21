@@ -207,25 +207,22 @@ def evaluations_to_latex(set_name, evaluations):
                      for (mean_evaluation, std_evaluation) in zip(mean_evaluations, std_evaluations)) + R' \\ \midrule')
 
 if __name__ == '__main__':
-    # generate_labels(23, 40, 'hierarchical_dp_analysis_rwc_test_v3', 'none')
-    # generate_labels(0, 33, 'hierarchical_gt_rwc_train_v6', 'midi')
+    for split in ['val', 'test']:
+        print(f'Dataset: RWC Pop {split}')
+        split_files = get_split('rwc_multitrack_hierarchy_v6_supervised', split)
+        print(evaluations_to_latex('Oracle',
+            [oracle_analyze(os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file)) for file in split_files]))
+        print(evaluations_to_latex('Rule',
+            [joint_analyze(os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file), save_type='f1',
+                        drums=1, melody=1, others=1) for file in split_files]))
+        print(evaluations_to_latex('Rule\n (mel. only)',
+            [joint_analyze(os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file), save_type='f1',
+                        drums=0, melody=1, others=0) for file in split_files]))
+        print(evaluations_to_latex('Rule\n (no drums)',
+            [joint_analyze(os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file), save_type='f1',
+                        drums=0, melody=1, others=1) for file in split_files]))
 
-    split_files = get_split('rwc_multitrack_hierarchy_v6_supervised', 'test')
-    print(evaluations_to_latex('Oracle',
-        [oracle_analyze(os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file)) for file in split_files]))
-    print(evaluations_to_latex('Rule',
-        [joint_analyze(os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file), save_type='f1',
-                    drums=1, melody=1, others=1) for file in split_files]))
-    print(evaluations_to_latex('Rule\n (mel. only)',
-        [joint_analyze(os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file), save_type='f1',
-                    drums=0, melody=1, others=0) for file in split_files]))
-    print(evaluations_to_latex('Rule\n (no drums)',
-        [joint_analyze(os.path.join(RWC_DATASET_PATH, 'AIST.RWC-MDB-P-2001.SMF_SYNC', file), save_type='f1',
-                    drums=0, melody=1, others=1) for file in split_files]))
-
-    print('\n\nPOP909\n\n')
+    print('Dataset: POP909 test')
     print(evaluations_to_latex('Oracle', [oracle_analyze(R'input/POP909-%d.mid' % (i + 1)) for i in range(5)]))
     print(evaluations_to_latex('Rule', [joint_analyze(R'input/POP909-%d.mid' % (i + 1), save_type='f1') for i in range(5)]))
     print(evaluations_to_latex('Rule\n(mel. only)', [joint_analyze(R'input/POP909-%d.mid' % (i + 1), tracks=[0], save_type='f1') for i in range(5)]))
-    joint_analyze(R'E:\Dataset\RWC\AIST.RWC-MDB-P-2001.SMF_SYNC\RM-P051.SMF_SYNC.MID', save_type='f1')
-    exit(0)

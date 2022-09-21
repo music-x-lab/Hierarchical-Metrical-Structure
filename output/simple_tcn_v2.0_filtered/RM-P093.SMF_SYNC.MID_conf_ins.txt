@@ -1,0 +1,1 @@
+drums:7,Electric Guitar (clean)(27):0,Electric Bass (finger)(33):1,Electric Guitar (clean)(27):2,melody:3,Overdriven Guitar(29):4,Overdriven Guitar(29):5,Distortion Guitar(30):6

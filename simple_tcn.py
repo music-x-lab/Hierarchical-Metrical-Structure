@@ -5,7 +5,6 @@ from mir.nn.data_storage import FramedRAMDataStorage
 from mir.nn.data_provider import DataProvider, default_collate, data_type_fix
 from mir.nn.train import NetworkBehavior, NetworkInterface
 from mir.nn.data_provider import FramedDataProvider, data_type_fix
-from modules.vae import Reparameterizer
 from crf import CRFDecoder
 import numpy as np
 from scipy.ndimage.filters import maximum_filter1d
@@ -222,9 +221,9 @@ class JointProvider(DataProvider):
 if __name__ == '__main__':
     np.random.seed(0)
     torch.manual_seed(0)
-    model_name = 'tcn_hierarchical_classifier_v2.0_filtered'
+    model_name = 'simple_tcn_v2.0_filtered'
     use_pitch_shift = 'no_pitch_shift' not in model_name
-    train_provider, val_provider = get_providers('rwc_multitrack_hierarchy_v7_supervised_fix', use_pitch_shift)
+    train_provider, val_provider = get_providers('rwc_multitrack_hierarchy_v6_supervised', use_pitch_shift)
     trainer = NetworkInterface(TCNClassifier(384, 256, 6, 5, 0.5),
         model_name, load_checkpoint=True)
     trainer.train_supervised(train_provider,

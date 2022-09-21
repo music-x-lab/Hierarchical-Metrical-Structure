@@ -1,0 +1,1 @@
+drums:9,Bright Acoustic Piano(1):0,Electric Bass (finger)(33):1,Rock Organ(18):2,melody:3,Electric Guitar (clean)(27):4,Distortion Guitar(30):5,Electric Guitar (clean)(27):6,Distortion Guitar(30):7,Distortion Guitar(30):8,Gunshot(127):10

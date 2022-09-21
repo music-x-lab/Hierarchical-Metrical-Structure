@@ -7,6 +7,7 @@ from settings import LMD_MATCHED_FOLDER
 import matplotlib.pyplot as plt
 import torch
 from crf import CRFDecoder
+from simple_tcn_eval import evaluate_lmd
 
 ins_collection = {'others': []}
 drum_counter = np.zeros((128, 5), dtype=int)
@@ -98,7 +99,14 @@ def get_instrument_confidence(midi_path, model_save_name, subbeat_count=4):
                 continue
             drum_counter[0, labels[i]] += 1
             drum_counter[rolls[0][downbeat_bins[i], -128:] > 0, labels[i]] += 1
+
+def get_outputs():
+    model = NetworkInterface(TCNClassifier(384, 256, 6, 5, 0.1),
+        'simple_tcn_v2.0_filtered', load_checkpoint=False)
+    evaluate_lmd(model, 9999)
+
 if __name__ == '__main__':
+    get_outputs()
     f = open('data/lmd_matched_usable_midi.txt', 'r')
     lines = [line.strip() for line in f.readlines() if line.strip() != '']
     f.close()

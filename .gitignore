@@ -3,7 +3,6 @@
 /.idea
 /__pycache__
 *.pyc
-/output
 /data
 /figure
 /report

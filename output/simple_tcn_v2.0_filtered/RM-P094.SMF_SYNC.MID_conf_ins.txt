@@ -1,0 +1,1 @@
+drums:9,Electric Piano 1(4):0,Electric Bass (pick)(34):1,Electric Guitar (jazz)(26):2,melody:3,String Ensemble 1(48):4,String Ensemble 1(48):5,Synth Choir(54):6,Synth Choir(54):7,Overdriven Guitar(29):8,Overdriven Guitar(29):10,Overdriven Guitar(29):11

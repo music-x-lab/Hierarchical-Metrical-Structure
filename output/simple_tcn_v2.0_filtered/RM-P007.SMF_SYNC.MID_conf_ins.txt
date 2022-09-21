@@ -1,0 +1,1 @@
+drums:9,Electric Grand Piano(2):0,Synth Bass 2(39):1,FX 3 (crystal)(98):2,melody:3,Pad 2 (warm)(89):4,Lead 2 (sawtooth)(81):5,Lead 2 (sawtooth)(81):6,Pad 7 (halo)(94):7,String Ensemble 1(48):8,Acoustic Guitar (steel)(25):10,Lead 1 (square)(80):11,Distortion Guitar(30):12,Distortion Guitar(30):13,Electric Guitar (muted)(28):14,Guitar Harmonics(31):15

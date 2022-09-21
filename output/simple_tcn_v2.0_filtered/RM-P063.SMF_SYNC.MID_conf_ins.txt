@@ -1,0 +1,1 @@
+drums:9,FX 4 (atmosphere)(99):0,Electric Bass (pick)(34):1,Distortion Guitar(30):2,melody:3,Electric Guitar (muted)(28):4,String Ensemble 1(48):5,FX 5 (brightness)(100):6,Pad 1 (new age)(88):7,Brass Section(61):8,String Ensemble 1(48):10

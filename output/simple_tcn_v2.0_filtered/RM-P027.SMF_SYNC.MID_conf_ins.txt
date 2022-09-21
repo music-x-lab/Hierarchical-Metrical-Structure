@@ -1,0 +1,1 @@
+drums:7,Reverse Cymbal(119):0,Synth Bass 1(38):1,Electric Guitar (jazz)(26):2,melody:3,Orchestral Harp(46):4,Orchestral Harp(46):5,Orchestral Harp(46):6,Acoustic Guitar (steel)(25):8,Electric Piano 1(4):9,Cello(42):10,Synth Strings 1(50):11,String Ensemble 1(48):12

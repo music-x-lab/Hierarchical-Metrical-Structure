@@ -1,0 +1,1 @@
+drums:9,Bright Acoustic Piano(1):0,Synth Bass 2(39):1,Electric Piano 2(5):2,melody:3,Soprano Sax(64):4,Percussive Organ(17):5,Orchestral Harp(46):6,Reverse Cymbal(119):7,Applause(126):8,Electric Guitar (clean)(27):10,Electric Guitar (muted)(28):11,Electric Guitar (clean)(27):12,Electric Guitar (clean)(27):13,Electric Guitar (jazz)(26):14,Choir Aahs(52):15

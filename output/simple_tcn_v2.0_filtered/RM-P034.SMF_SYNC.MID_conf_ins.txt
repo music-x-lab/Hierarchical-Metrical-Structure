@@ -1,0 +1,1 @@
+drums:10,String Ensemble 1(48):0,Electric Bass (finger)(33):1,Synth Strings 1(50):2,melody:3,Choir Aahs(52):4,Acoustic Grand Piano(0):5,Distortion Guitar(30):6,Distortion Guitar(30):7,Guitar Harmonics(31):8,Electric Guitar (clean)(27):9,Electric Guitar (muted)(28):11,Distortion Guitar(30):12

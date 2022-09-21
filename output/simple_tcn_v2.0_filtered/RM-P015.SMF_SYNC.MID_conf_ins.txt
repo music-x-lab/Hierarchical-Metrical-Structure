@@ -1,0 +1,1 @@
+drums:9,Electric Guitar (muted)(28):0,Slap Bass 1(36):1,melody:2,Orchestra Hit(55):3,String Ensemble 1(48):4,Guitar Harmonics(31):5,Pad 1 (new age)(88):6,Synth Bass 2(39):7,Seashore(122):8,Distortion Guitar(30):10,Distortion Guitar(30):11,Distortion Guitar(30):12,Distortion Guitar(30):13,Overdriven Guitar(29):14
