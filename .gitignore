@@ -3,7 +3,6 @@
 /.idea
 /__pycache__
 *.pyc
-/data
 /figure
 /report
 desktop.ini
