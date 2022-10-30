@@ -2,6 +2,10 @@
 
 Repository for the paper Learning Hierarchical Metrical Structure Beyond Measures (to be presented on ISMIR 2022).
 
+### See also our follow-up work with self-supervision!
+
+https://github.com/music-x-lab/Self-Supervised-Metrical-Structure.
+
 ## Demos
 
 See ``output`` folder for demos from the validation and test split of RWC-Pop.
